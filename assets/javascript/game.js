@@ -1,5 +1,49 @@
-var gamesSelection = ["pacman","centipede","galaxian"]
+var gamesSelection = ["pa c-man","ce nt-ipede","ga lax-ian"]
 var wins = 0
 var loss = 0
+var leTTers = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-document.onkeyup = function(event) {console.log("testing?")}
+document.querySelector("#wins").innerHTML ="Wins: "+ wins
+document.querySelector("#losses").innerHTML ="Losses: "+ loss
+//  Game starts here, it will be one big loop. 
+document.onkeyup = function() { 
+    
+    var gamePick = Math.floor(Math.random()*gamesSelection.length);
+    var plays = 9;
+    var target= (gamesSelection[gamePick]);
+    var tarDisp= [];
+
+    for (i=0;i<target.length;i++) { 
+             if (target[i] === "-") { tarDisp.push("-")}
+                 else if (target[i] === " ") {tarDisp.push(" ")}
+                        else {tarDisp.push("_")}
+    }
+    document.querySelector("#display").innerHTML = tarDisp ;
+
+    console.log (target.length)
+    console.log (target)
+    console.log (plays)
+    console.log (tarDisp)
+ //starting the actuall game
+for ( i =9;  i > 0; i--)  {
+    document.querySelector("#lives").innerHTML = "lives: " + plays ;
+      
+
+// the score will display itself after each sub loop 
+}
+}
+
+//   THIS SHOULD COME IN HANDY!
+// .forEach
+// var userInput = event.key.toLowerCase();
+// document.querySelector("#score").innerHTML = "Score: " + score;
+  // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
+//   var html =
+//   "<p>You chose: " + userGuess + "</p>" +
+//   "<p>The computer chose: " + computerGuess + "</p>" +
+//   "<p>wins: " + wins + "</p>" +
+//   "<p>losses: " + losses + "</p>" +
+//   "<p>ties: " + ties + "</p>";
+
+// Set the inner HTML contents of the #game div to our html string
+// document.querySelector("#game").innerHTML = html;

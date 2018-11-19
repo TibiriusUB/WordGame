@@ -1,32 +1,61 @@
 // set all variables
-var gamesSelection = ["pac-man","centipede","galaxian","asteroids"]
+var gamesSelection = ["pac-m an","centi pede","gal axian","aste roids"]
+var gampick = ""
+var target = ""
 var wins = 0
 var loss = 0
+var plays = 9
 var leTTers = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+var gueSSed = []
+var tarDisp = []
+var gamestart = true
+  
+  
 
-document.querySelector("#wins").innerHTML ="Wins: "+ wins
-document.querySelector("#losses").innerHTML ="Losses: "+ loss
-game()
-document.onkeyup = function(game) { 
-    
-    var gamePick = Math.floor(Math.random()*gamesSelection.length);
-    var plays = 9;
+document.onekeyup = function(event) { 
+    if (gamestart)  {  console.log ("booya")}
+
+else { start() }
+}
+    //start function
+function start() { 
+    let gamePick = Math.floor(Math.random()*gamesSelection.length);
+    let plays = 9;
     var target= (gamesSelection[gamePick]);
-    var tarDisp= [];
-
     for (i=0;i<target.length;i++) { 
              if (target[i] === "-") { tarDisp.push("-")}
-                 else if (target[i] === " ") {tarDisp.push(" ")}
+                 else if (target[i] === " ") {tarDisp.push("&nbsp")}
                         else {tarDisp.push("_")}
-    }
-    document.querySelector("#display").innerHTML = tarDisp.join(" ") ;
-// starting the actuall game
-
+    };
+    console.log (gamePick)
     console.log (target.length)
     console.log (target)
     console.log (plays)
     console.log (tarDisp)
-}
+    }
+    document.querySelector("#lives").innerHTML ="Lives: "+ plays;
+    document.querySelector("#display").innerHTML = tarDisp.join(" ") ;
+//return target, tarDisp 
+
+   //restart function
+    //game function
+    //score function
+    
+
+
+
+
+
+    document.querySelector("#wins").innerHTML ="Wins: "+ wins
+    document.querySelector("#losses").innerHTML ="Losses: "+ loss
+
+    
+
+
+
+// starting the actuall game
+    
+  
 // the score will display itself after each sub loop 
         // for ( j =plays;  j > 0; j--)  {
         //     document.querySelector("#lives").innerHTML = "lives: " + plays;

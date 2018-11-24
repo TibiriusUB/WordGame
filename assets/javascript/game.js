@@ -1,5 +1,5 @@
 // set all variables
-var gamesSelection = ["pac-m an","centi pede","gal axian","aste roids"]
+var gamesSelection = ["pac-man","centipede","galaxian","asteroids","mappy","missle command","qix"]
 var gampick = ""
 var target = ""
 var wins = 0
@@ -8,33 +8,81 @@ var plays = 9
 var leTTers = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 var gueSSed = []
 var tarDisp = []
-var gamestart = true
-  
-  
+var gamestart = false
 
-document.onekeyup = function(event) { 
-    if (gamestart)  {  console.log ("booya")}
-
-else { start() }
+document.onkeyup = function(event) {
+    if (gamestart)  {gameON()
+        console.log (tarDisp);
+        console.log (target);
+        console.log ("booya");
+        } else { 
+            start();
+            gamestart = true;
+    }
 }
-    //start function
+   // start function
 function start() { 
-    let gamePick = Math.floor(Math.random()*gamesSelection.length);
-    let plays = 9;
-    var target= (gamesSelection[gamePick]);
+    gamePick = Math.floor(Math.random()*gamesSelection.length);
+    plays = 9;
+    target= (gamesSelection[gamePick]);
     for (i=0;i<target.length;i++) { 
              if (target[i] === "-") { tarDisp.push("-")}
                  else if (target[i] === " ") {tarDisp.push("&nbsp")}
-                        else {tarDisp.push("_")}
+                        else {tarDisp.push("_")};                    
     };
-    console.log (gamePick)
-    console.log (target.length)
-    console.log (target)
-    console.log (plays)
-    console.log (tarDisp)
+    document.querySelector("#tarDisp").innerHTML = tarDisp.join(" ")
+// return target, tarDisp
+}
+
+function gameON() {
+    for (j=0;j<leTTers.length;j++) {
+        if (event.key === leTTers[j]) {
+            for (k=0;k<target.length;k++){
+                if (target[j] === event.key ) {
+                    (tarDisp[j] = event.key);
+            }else {
+                (gueSSed.push[j]);
+                (leTTers.splice[j]);
+                document.querySelector("#tarDisp").innerHTML = tarDisp.join(" ");
+                document.querySelector("#leTTers").innerHTML = leTTers; 
+            };
+
+        };
+            if (target[j] === event.key ) {
+                tarDisp[j] = event.key;
+                document.querySelector("#display").innerHTML = tarDisp.join(" ")
+            };
+        };
+    gueSSed.push(event.key.toLowerCase()); };
+
+    };
+
+
+function resetGame() {
+    remainingGuesses = maxTries;
+    gameStarted = false;
+
+    // Build the guessing word and clear it out
+    for (var i = 0; i < selectableWords[currentWordIndex].length; i++) {
+        guessingWord.push("_");
     }
-    document.querySelector("#lives").innerHTML ="Lives: "+ plays;
-    document.querySelector("#display").innerHTML = tarDisp.join(" ") ;
+    // Hide game over and win images/text
+    document.getElementById("pressKeyTryAgain").style.cssText= "display: none";
+    document.getElementById("gameover-image").style.cssText = "display: none";
+    document.getElementById("youwin-image").style.cssText = "display: none";
+
+    // Show display
+    updateDisplay();
+//     gameON(tarDisp,target)
+}
+
+// function gameON(x,y){
+//     for (i=)
+//     }
+// // function upDateScore()
+
+   // document.querySelector("#lives").innerHTML ="Lives: "+ plays;
+  //  ;
 //return target, tarDisp 
 
    //restart function
@@ -46,8 +94,8 @@ function start() {
 
 
 
-    document.querySelector("#wins").innerHTML ="Wins: "+ wins
-    document.querySelector("#losses").innerHTML ="Losses: "+ loss
+    // document.querySelector("#wins").innerHTML ="Wins: "+ wins
+    // document.querySelector("#losses").innerHTML ="Losses: "+ loss
 
     
 
